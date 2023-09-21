@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="final.css">
+    <title>Account Settings Collapse Sidebar on Hover</title>
+</head>
+<body>
+     <!-- Loading animation -->
+     <div class="loading" id="loading">
+        <div class="loader"></div>
+    </div>
+
+    <div class="container-fluid"></div><!-- The navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+        <div class="navbar">
+            <a class="navbar-brand" href="/Homepage/home.html">
+                <img src="wit.png" alt="Logo" class="d-inline-block align-text-top">
+                <span class="navbar-brand-text">Western Institute of Technology</span>
+            </a>
+            <!-- Dropdown button -->
+            <div class="dropdown">
+                <button class="dropbtn">
+                    <img src="/Assets/list.svg" alt="Dropdown Icon" id="dropdown-icon">
+                </button>
+                <!-- Dropdown content -->
+                <div class="dropdown-content" id="dropdown-content">
+                    <a href="#"><img src="/Assets/person-circle.svg" alt="Profile Icon">Profile</a>
+                    <a href="#"><img src="/Assets/gear-fill.svg" alt="Setting Icon">Setting</a>
+                    <a href="#"><img src="/Assets/box-arrow-right.svg" alt="Logout Icon">Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+      <!-- The container for content and sidebar -->
+    <div id="container">
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <!-- Sidebar content -->
+            <ul class="collapsed"> <!-- Initially collapsed -->
+                <li><a href="/accountset.html" onclick="showLoading()"><img src="/Assets/home.svg" alt="Notifications Icon">Home</a></li>
+                <li><a href="/accountset.html" onclick="showLoading()"><img src="/Assets/rf.svg" alt="Dashboard Icon">Registration Form</a></li>
+                <li><a href="/profile" onclick="showLoading()"><img src="/Assets/account balance.svg" alt="Profile Icon">Account Balance</a></li>
+                <li><a href="/settings" onclick="showLoading()"><img src="/Assets/faqs.svg" alt="Settings Icon">FAQs</a></li>
+                <li><a href="/messages" onclick="showLoading()"><img src="/Assets/contacts.svg" alt="Messages Icon">Contacts</a></li>
+            </ul>
+        </div>
+
+        <!-- Content container -->
+        <div id="content">
+            <!-- Your content goes here -->
+         <div class="side-menu">    
+          <div class="h-title">
+            <div class="heading"> SETTINGS </div>
+        </div>
+        <ul>
+            <li><a href="accountset.html">Account Settings</a></li>
+            <li><a href="security.html">Security</a></li>
+            <li><a href="">Logout</a></li>
+        </ul>
+     </div>
+     <div class="v-line"></div>
+      <div class="image-container">
+            <img id="img" src="caloocan.jpg">
+            <div class="cp">
+                <label for="image-upload" class="custom-button"> Change Picture </label>
+                <input type="file" id="image-upload" accept="image/*">
+                
+                <label for="delete-upload" class="custom-button"> Delete Picture </label>
+                <input type="checkbox" id="delete-upload">
+        </div>
+        <div class="user-info">
+            <div class="names">
+                <h1> First Name </h1>
+                <div class="wrap">
+                    <span id="first-name">Kerth</span>
+                    <input type="text" id="edit-first-name" style="display: none;">
+                </div>
+                  <div class="h2"> Last Name</div>
+                <div class="wrap2">
+                    <span id="last-name">Gerasmia</span>
+                    <input type="text" id="edit-last-name" style="display: none;">
+                </div>
+            <div class="h4">Middle Initial</div>
+                <div class="wrap5">
+                    <span id="last-name">D.</span>
+                    <input type="text" id="edit-last-name" style="display: none;">
+                </div>
+            </div>
+            <div class="ads">
+                <p>Address</p>
+                <div class="wrap3">Yulo Drive, Villa Arevalo, Iloilo City, Iloilo, 5000</div>
+            </div>
+            <div class="birthdate">
+                <div class="p">Birthdate</div>
+                <div class="wrap4">09/10/2000</div>
+              </div>  
+      <!-- end of content -->
+        </div>
+        </div>
+     </div>
+    </div>
+     <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 Western Institute of Technology</p>
+        </div>
+    </footer>
+
+    <script>
+         // Function to show the loading animation
+         function showLoading() {
+            const loading = document.getElementById("loading");
+            loading.style.display = "block";
+        }
+
+        const dropdownButton = document.querySelector(".dropbtn");
+        const dropdownContent = document.querySelector(".dropdown-content");
+        const sidebar = document.getElementById("sidebar");
+        const sidebarLinks = document.querySelector(".sidebar ul");
+
+        dropdownButton.addEventListener("click", () => {
+            if (dropdownContent.style.display === "block") {
+                dropdownContent.style.display = "none";
+            } else {
+                dropdownContent.style.display = "block";
+            }
+        });
+
+        // Add hover functionality to expand/collapse sidebar
+        sidebar.addEventListener("mouseenter", () => {
+            sidebar.classList.remove("collapsed");
+            sidebarLinks.classList.remove("collapsed");
+        });
+
+        sidebar.addEventListener("mouseleave", () => {
+            sidebar.classList.add("collapsed");
+            sidebarLinks.classList.add("collapsed");
+        });
+        // Hide the loading animation when the page is loaded
+        window.addEventListener("load", () => {
+            const loading = document.getElementById("loading");
+            loading.style.display = "none";
+        });
+    </script>
+</body>
+</html>

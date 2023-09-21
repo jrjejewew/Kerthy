@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="final.css">
+    <title>Security Collapse Sidebar on Hover</title>
+</head>
+<body>
+     <!-- Loading animation -->
+     <div class="loading" id="loading">
+        <div class="loader"></div>
+    </div>
+
+    <div class="container-fluid"></div><!-- The navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+        <div class="navbar">
+            <a class="navbar-brand" href="/Homepage/home.html">
+                <img src="wit.png" alt="Logo" class="d-inline-block align-text-top">
+                <span class="navbar-brand-text">Western Institute of Technology</span>
+            </a>
+            <!-- Dropdown button -->
+            <div class="dropdown">
+                <button class="dropbtn">
+                    <img src="/Assets/list.svg" alt="Dropdown Icon" id="dropdown-icon">
+                </button>
+                <!-- Dropdown content -->
+                <div class="dropdown-content" id="dropdown-content">
+                    <a href="#"><img src="/Assets/person-circle.svg" alt="Profile Icon">Profile</a>
+                    <a href="#"><img src="/Assets/gear-fill.svg" alt="Setting Icon">Setting</a>
+                    <a href="#"><img src="/Assets/box-arrow-right.svg" alt="Logout Icon">Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+      <!-- The container for content and sidebar -->
+    <div id="container">
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <!-- Sidebar content -->
+            <ul class="collapsed"> <!-- Initially collapsed -->
+                <li><a href="/accountset.html" onclick="showLoading()"><img src="/Assets/home.svg" alt="Notifications Icon">Home</a></li>
+                <li><a href="/accountset.html" onclick="showLoading()"><img src="/Assets/rf.svg" alt="Dashboard Icon">Registration Form</a></li>
+                <li><a href="/profile" onclick="showLoading()"><img src="/Assets/account balance.svg" alt="Profile Icon">Account Balance</a></li>
+                <li><a href="/settings" onclick="showLoading()"><img src="/Assets/faqs.svg" alt="Settings Icon">FAQs</a></li>
+                <li><a href="/messages" onclick="showLoading()"><img src="/Assets/contacts.svg" alt="Messages Icon">Contacts</a></li>
+            </ul>
+        </div>
+
+        <!-- Content container -->
+        <div id="content">
+            <!-- Your content goes here -->
+         <div class="side-menu">
+          <div class="h-title">
+            <div class="heading"> SETTINGS </div>
+        </div>
+        <ul>
+            <li><a href="accountset.html">Account Settings</a></li>
+            <li><a href="security.html">Security</a></li>
+            <li><a href="">Logout</a></li>
+        </ul>
+     </div>
+     <div class="v-line"></div>
+     <div class="name1">Kerth D. Gerasmia </div>
+            <div class="change-pass">
+                <div class="h3">Change Password</div><br>
+                <p id="p2">Your password shoudl include a combination <br>
+                    of numbers, letters and special characters(!$@%).<p>
+            </div>
+            <div class="password-form">
+        <form>
+            <label for="current-password"></label>
+            <input type="password" id="current-password" name="current-password" placeholder="Current Password" required>
+
+            <input type="password" id="new-password" name="new-password" placeholder="New Password" required>
+
+            <label for="retype-password"></label>
+            <input type="password" id="retype-password" name="retype-password" placeholder="Re-type New Password" required>
+
+            <button type="submit" id="change-password-button">Change Password</button>
+        </form>
+            </div>
+              
+      <!-- end of content -->
+        </div>
+        </div>
+     </div>
+     <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 Western Institute of Technology</p>
+        </div>
+    </footer>
+    <script>
+         // Function to show the loading animation
+         function showLoading() {
+            const loading = document.getElementById("loading");
+            loading.style.display = "block";
+        }
+
+        const dropdownButton = document.querySelector(".dropbtn");
+        const dropdownContent = document.querySelector(".dropdown-content");
+        const sidebar = document.getElementById("sidebar");
+        const sidebarLinks = document.querySelector(".sidebar ul");
+
+        dropdownButton.addEventListener("click", () => {
+            if (dropdownContent.style.display === "block") {
+                dropdownContent.style.display = "none";
+            } else {
+                dropdownContent.style.display = "block";
+            }
+        });
+
+        // Add hover functionality to expand/collapse sidebar
+        sidebar.addEventListener("mouseenter", () => {
+            sidebar.classList.remove("collapsed");
+            sidebarLinks.classList.remove("collapsed");
+        });
+
+        sidebar.addEventListener("mouseleave", () => {
+            sidebar.classList.add("collapsed");
+            sidebarLinks.classList.add("collapsed");
+        });
+        // Hide the loading animation when the page is loaded
+        window.addEventListener("load", () => {
+            const loading = document.getElementById("loading");
+            loading.style.display = "none";
+        });
+    </script>
+</body>
+</html>
